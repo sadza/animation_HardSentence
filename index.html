@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Складаныя сказы</title>
+</head>
+<style>
+	.main{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 1000px;
+		height: 700px;
+		margin-left: -500px;
+		margin-top: -350px;
+		box-shadow: 0 0 0 4px lightblue;
+	}
+	.type1,.type2,.type3,.type4{
+		position: absolute;
+		width: 240px;
+		height: 60px;
+		font: 25px "Times New Roman";
+		text-align: center;
+		top: 10px;
+		overflow:  hidden;
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.type1{left: 10px;}
+	.type2{left: 260px;}
+	.type3{left: 510px;}
+	.type4{left: 760px;}
+	p{
+		position: absolute;
+		width: 950px;
+		text-align: center;
+		left: 25px;
+		font: 55px bold "Monotype Corsiva";
+		top: 40%;
+		height: 80%;
+		top: 10px;	
+		border: 1px solid black;
+	}
+</style>
+<body>
+	<div class="main">
+		<div class="type1">Cкладаназалежны сказ</div>
+		<div class="type2">Складаназлучаны сказ</div>
+		<div class="type3">Бяззлучнікавы складаны сказ</div>
+		<div class="type4">Сказ камбінаванай будовы</div>
+		
+		<p id="sentence">
+			Дрэвы паміраюць, калі перастаюць пазнаваць змены года і не адгукаюцца рэхам: вада – калі забывае, куды ёй плыць, і нікому не спатольвае смагі: зямля-калі страчвае здольнасць здзіўляцца і захапляцца жыццём.
+			</p>
+	</div>
+</body>
+<script>
+	var p1=document.getElementById("sentence");
+	
+	
+</script>
+</html>
