@@ -24,6 +24,7 @@
 		top: 10px;
 		overflow:  hidden;
 		box-shadow: 0 0 0 2px lightgray;
+		border-radius: 10px;
 	}
 	.type:nth-child(1){left: 10px;}
 	.type:nth-child(2){left: 260px;}
@@ -39,6 +40,16 @@
 	#result{
 		position: absolute;
 		opacity: 0;
+		width: 600px;
+		height: 200px;
+		top: 50%;
+		left: 50%;
+		margin-left: -300px;
+		margin-top: -100px;
+	}
+	#ResMess{
+		width: 600px;
+		left: 0;
 	}
 </style>
 <body>
@@ -51,7 +62,7 @@
 		<p id="sentence">				</p>
 	</div>
 	<div id="result">
-		<p id="ResMess"></p>
+		<p id="ResMess">123</p>
 	</div>
 </body>
 <script>
@@ -88,23 +99,41 @@
 
 var arrQuest=[];
 var arrAnsw=[];
-
+var rightCount=0;
+var userAnswers=[];
 var questCounter=0;
 var nowQuest=0;
-while (questCounter<5){
+while (questCounter<10){
 	q1=Math.floor(Math.random()*4);
 	q2=Math.floor(Math.random()*arr[q1].length);
 	var canAdd=1;
 	for (i=0;i<arrQuest.length;i++){
-		if (q1+"_"+q2==arrQuest[i]){canAdd=0;}
+		if (arr[q1][q2]==arrQuest[i]){canAdd=0;}
 	}
 	if (canAdd==1){arrQuest.push(arr[q1][q2]);questCounter++;arrAnsw.push(q2);}
 }
-console.log(arrQuest);
 p1.innerHTML=arrQuest[nowQuest];
 p1.style.top=300-p1.clientHeight/2+"px";
+
+document.getElementsByClassName('type')[0].onclick=function(){ShowNext(1)};
+document.getElementsByClassName('type')[1].onclick=function(){ShowNext(2)};
+document.getElementsByClassName('type')[2].onclick=function(){ShowNext(3)};
+document.getElementsByClassName('type')[3].onclick=function(){ShowNext(4)};
 	
-	
+var ShowNext=function(rr){
+	if (rr==arrAnsw[nowQuest]){rightCount++;}
+	else {};
+	nowQuest++;
+	if (nowQuest<10){
+	p1.innerHTML=arrQuest[nowQuest];
+	p1.style.top=300-p1.clientHeight/2+"px";
+	}
+	else {
+		document.getElementsByClassName('main')[0].style.opacity=0;
+		document.getElementById('ResMess').innerHTML="Набрана "+rightCount+" з 10 балау";
+		document.getElementById('result').style.opacity=1;
+	}
+}
 	
 </script>
 </html>
