@@ -14,6 +14,10 @@
 		margin-left: -500px;
 		margin-top: -350px;
 		box-shadow: 0 0 0 4px lightblue;
+		border-radius: 4px;
+		
+		transition-property: opacity;
+		transition-duration: 0.5s;
 	}
 	.type{
 		position: absolute;
@@ -46,11 +50,42 @@
 		left: 50%;
 		margin-left: -300px;
 		margin-top: -100px;
+		
 	}
-	#ResMess{
-		width: 600px;
-		left: 0;
+	#ResMess{		
+		left: 0;		
+		width: 600px;		
 	}
+	.lineOfRes{
+		position: absolute;
+		top: 700px;
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+		background-color: red;
+		opacity: 0;
+		
+		-webkit-filter: blur(2px);
+		-moz-filter: blur(2px);
+		-ms-filter: blur(2px);
+		-o-filter: blur(2px);
+		filter: blur(2px);
+		
+		transition-property: opacity;
+		transition-duration: 0.5s;
+	}
+	
+	.lineOfRes:nth-child(2){left: 350px;}
+	.lineOfRes:nth-child(3){left: 400px;}
+	.lineOfRes:nth-child(4){left: 450px;}
+	.lineOfRes:nth-child(5){left: 500px;}
+	.lineOfRes:nth-child(6){left: 550px;}
+	.lineOfRes:nth-child(7){left: 600px;}
+	.lineOfRes:nth-child(8){left: 650px;}
+	.lineOfRes:nth-child(9){left: 700px;}
+	.lineOfRes:nth-child(10){left:750px;}
+	.lineOfRes:nth-child(11){left: 800px;}
+	.lineOfRes:nth-child(12){left: 850px;}
 </style>
 <body>
 	<div class="main">
@@ -64,6 +99,17 @@
 	<div id="result">
 		<p id="ResMess">123</p>
 	</div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	<div class="lineOfRes"></div>
+	
 </body>
 <script>
 	var p1=document.getElementById("sentence");
@@ -121,8 +167,8 @@ document.getElementsByClassName('type')[2].onclick=function(){ShowNext(3)};
 document.getElementsByClassName('type')[3].onclick=function(){ShowNext(4)};
 	
 var ShowNext=function(rr){
-	if (rr==arrAnsw[nowQuest]){rightCount++;}
-	else {};
+	if (rr==arrAnsw[nowQuest]){rightCount++;document.getElementsByClassName('lineOfRes')[nowQuest].style.backgroundColor="green";document.getElementsByClassName('lineOfRes')[nowQuest].style.opacity=1;}
+	else {document.getElementsByClassName('lineOfRes')[nowQuest].style.backgroundColor="red";document.getElementsByClassName('lineOfRes')[nowQuest].style.opacity=1;};
 	nowQuest++;
 	if (nowQuest<10){
 	p1.innerHTML=arrQuest[nowQuest];
